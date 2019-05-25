@@ -8,7 +8,7 @@ namespace EasyReport
     {
         public static void AddEasyReport(this IServiceCollection services)
         {
-            services.AddTransient<IChartService, EChartsService>();
+            services.AddTransient<IReportService, ReportService>();
         }
     }
 }

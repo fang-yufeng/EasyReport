@@ -6,16 +6,17 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using UnitTests.DependencyInjection;
+using UnitTests.Models;
 using Xunit;
 
 namespace UnitTests.Services
 {
     public class EChatsServiceTest
     {
-        private readonly IChartService _chartService;
+        private readonly IReportService _reportService;
         public EChatsServiceTest()
         {
-            _chartService = _chartService.Resolve();
+            _reportService = _reportService.Resolve();
         }
 
         [Theory]
@@ -69,13 +70,27 @@ namespace UnitTests.Services
                 YAxis = y
             };
 
-            var result = _chartService.GetHtmlChart(option);
+            //var result = _reportService.GetHtml(option);
 
             string saveUrl = Path.Combine(Environment.CurrentDirectory, $"{num}.html");
 
-            File.WriteAllText(saveUrl, result);
+            //File.WriteAllText(saveUrl, result);
 
         }
+
+        [Fact]
+        public void Test()
+        {
+            var data = new TestClass1()
+            {
+                P1 = "p1",
+                P2 = "p2",
+                P3 = "p3"
+            };
+
+            //_chartService.GetBarHtml(data, x => x.P1, x => x.P1);
+        }
+
         public decimal GetNum()
         {
             Random random = new Random();

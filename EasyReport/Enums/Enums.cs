@@ -11,4 +11,9 @@ namespace EasyReport.Enums
         time,
         log
     }
+
+    public enum SerieType
+    {
+        line,
+    }
 }
